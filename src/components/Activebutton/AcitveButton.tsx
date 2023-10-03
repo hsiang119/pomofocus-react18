@@ -5,7 +5,7 @@ type ButtonProps = {
   disabled: boolean
 }
 
-const ActiveButton= (props: ButtonProps) => {
+const ActiveButton: React.FC<ButtonProps> = (props) => {
   const { children, ...rest } = props;
   return (
     <button className="text-red-400" {...rest}>
