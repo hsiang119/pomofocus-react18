@@ -2,15 +2,14 @@ const POMODORO = 'POMODORO';
 const LONGBREAK = 'LONGBREAK';
 const SHORTBREAK = 'SHORTBREAK';
 
-const SET_ACTIVE = 'SET_ACTIVE';
-const SET_INACTIVE = 'SET_INACTIVE';
+const ACTIVE = "TOGGLE_ACTIVE";
 
 
 type ActionPomodoro = { type: 'POMODORO' };
 type ActionLongBreak = { type: 'LONGBREAK' };
 type ActionShortBreak = { type: 'SHORTBREAK' };
 
-type ActionActive = { type: "TOGGLE_ACTIVE" }
+export type ActionActive = { type: "TOGGLE_ACTIVE" }
 
 
 export const actionPomodoro = (): ActionPomodoro => {
@@ -31,8 +30,8 @@ export const actionShortBreak = (): ActionShortBreak => {
     };
 };
 
-export const setActive = () => ({ type: SET_ACTIVE });
-export const setInactive = () => ({ type: SET_INACTIVE });
+export const actionActive = (): ActionActive => ({ type: ACTIVE });
+
 
 export type ActionModeTypes = ActionPomodoro | ActionLongBreak | ActionShortBreak
 export type ActionActiveTypes = ActionActive
