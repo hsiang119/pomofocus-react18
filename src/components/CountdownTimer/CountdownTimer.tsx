@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import styles from "./CountdownTimer.module.scss";
 
 interface NavTabItem {
-    id: string;
+    id: number;
     title: string;
 }
 
+type data = "POMODORO" | "LONGBREAK" | "SHORTBREAK"
+
 type TimeProps = {
     navTab: NavTabItem[],
-    onUpdateTimeMode: (data: string) => void,
+    onUpdateTimeMode: (data: data) => void,
     onChangeActiveStatus: () => void,
     duration: string,
     isActive: boolean,
@@ -26,7 +28,8 @@ const CountdownTimer: React.FC<TimeProps> = (props)  => {
 
     const atChangeCountDownMode = (value: string): void => {
         console.log(value);
-        onUpdateTimeMode(value)
+        const parse = value.toUpperCase().replace(' ','')
+        onUpdateTimeMode(parse as data)
         setActiveTab(value)
     }
  
