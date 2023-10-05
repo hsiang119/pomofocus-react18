@@ -33,9 +33,9 @@ const TimeCountdownContainer = () => {
   
   const { duration, distance } = useAppSelector((state) => {
     return {
-      mode: state.TimeMode.mode,
+      // mode: state.TimeMode.mode,
       duration: state.TimeMode.duration,
-      active: state.active ? state.active.isActive : false,
+      // active: state.active ? state.active.isActive : false,
       distance: state.TimeMode.distance
     };
   }, shallowEqual);
