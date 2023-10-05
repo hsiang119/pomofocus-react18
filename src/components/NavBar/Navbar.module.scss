@@ -1,0 +1,25 @@
+.menu-btn__burger::before, .menu-btn__burger::after {
+    @apply content-[''] absolute w-[55px] h-[6px] bg-primary rounded-[5px] shadow-burger transition duration-500 ease-in-out;
+}
+
+.menu-btn__burger::before {
+    @apply translate-y-[-16px];
+}
+
+.menu-btn__burger::after {
+    @apply translate-y-[16px];
+}
+
+.menu-btn {
+    &:global(.active) .menu-btn__burger {
+        @apply text-center translate-x-[-50px] bg-transparent shadow-none;
+    }
+
+    &:global(.active) .menu-btn__burger::before {
+        @apply rotate-45 translate-x-[30px] translate-y-[0px];
+    }
+
+    &:global(.active) .menu-btn__burger::after {
+        @apply -rotate-45 translate-x-[30px] translate-y-[0px];
+    }
+}
