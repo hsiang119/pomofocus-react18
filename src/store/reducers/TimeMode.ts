@@ -14,7 +14,7 @@ const initialState: initialState = {
   distance: 25 * minute
 };
 
-export default function changeModeType(state = initialState, action: ActionModeTypes) {
+export default function TimeMode(state = initialState, action: ActionModeTypes) {
   switch (action.type) {
     case "POMODORO":
       return {

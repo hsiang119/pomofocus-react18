@@ -16,7 +16,6 @@ interface NavTabItem {
 
 const TimeCountdownContainer = () => {
 
-  
   const [navTab] = useState<NavTabItem[]>([
     {
       id: 1,
@@ -33,12 +32,11 @@ const TimeCountdownContainer = () => {
   ])
   
   const { duration, distance } = useAppSelector((state) => {
-    const timeMode = state.TimeMode || {};
     return {
-      mode: timeMode.mode,
-      duration: timeMode.duration,
+      mode: state.TimeMode.mode,
+      duration: state.TimeMode.duration,
       active: state.active ? state.active.isActive : false,
-      distance: timeMode.distance
+      distance: state.TimeMode.distance
     };
   }, shallowEqual);
 
