@@ -1,10 +1,11 @@
 import React, { useCallback } from 'react';
+import { onGetTime } from "../utils/common";
 
 
-export default function useCountDown(endTime: number) {
-    const [value, setValue] = React.useState("fakeValue");
-    const [isActive, setActive] = React.useState(false);
-    const [counter, setCounter] = React.useState(endTime - Date.now());
+export default function useCountDown(endTime: number, remainingTime: string) {
+    const [value, setValue] = React.useState<number | string>(remainingTime);
+    const [isActive, setActive] = React.useState<boolean>(false);
+    const [counter, setCounter] = React.useState<number>(endTime);
 
     React.useEffect(() => {
         if (isActive) {
@@ -12,7 +13,7 @@ export default function useCountDown(endTime: number) {
             const newCounter = counter - 1000;
             setCounter(newCounter);
     
-            newCounter <= 0 ? setValue("timeup") : setValue(onGetTime(newCounter));
+            newCounter <= 0 ? setValue("00:00") : setValue(onGetTime(newCounter));
 
           }, 1000);
     
@@ -21,15 +22,13 @@ export default function useCountDown(endTime: number) {
           };
         }
     }, [counter, isActive]);
+
+    React.useEffect(() => {
+        setValue(remainingTime);
+        setCounter(endTime);
+        setActive(false);
+    }, [remainingTime, endTime]);
       
-    const onGetTime = (distance: number): string => {
-        // const hours = Math.floor(
-        //   (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        // );
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        return `${minutes}:${seconds}`;
-    };
 
     const onStart = useCallback((): void => {
         setActive(!isActive);
@@ -40,10 +39,10 @@ export default function useCountDown(endTime: number) {
     }, [isActive]);
 
     return {
-        value,
-        onStart,
-        onStop,
-        isActive
+      value,
+      onStart,
+      onStop,
+      isActive
     };
 }
     
