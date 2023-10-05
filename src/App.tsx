@@ -1,26 +1,18 @@
-// import { useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import "./index.scss";
-import ActiveButton from "./components/AcitveButton";
-import useCountdown from "./hooks/useCountDown";
 
-const DAY = 24 * 60 * 60 * 1000;
+import Home from "./components/Home";
 
 export default function App() {
-  const { value, onStart, onStop, isActive } = useCountdown(Date.now() + DAY);
-  
 
   return (
-    <div className="App">
-      <h1>{value}</h1>
-      <button onClick={onStart} disabled={isActive}>
-        start
-      </button>
-      <button onClick={onStop} disabled={!isActive}>
-        stop
-      </button>
-      <ActiveButton disabled={!isActive}>
-        stop
-      </ActiveButton>
-    </div>
+    <Router>
+      <div className="App xl:max-w-1200 lg:max-w-1000 md:max-w-600 w-full mx-auto my-0 h-screen">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          
+        </Routes>
+      </div>
+    </Router>
   );
 }
