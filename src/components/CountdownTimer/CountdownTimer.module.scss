@@ -1,0 +1,67 @@
+.tab-active {
+    @apply text-cyan-500 border-transparent border-b-2 border-b-cyan-500;
+}
+
+
+.menu:has(.item:hover) .item:not(:hover) {
+    color: #8f8f8f;
+    border-bottom: 2px solid transparent;
+    opacity: 0.5;
+    
+}
+
+.box::before {
+    @apply content-[''] absolute top-[-50%] left-[-50%] w-full h-[350px] bg-custom-gradient z-[1] animate-animate origin-bottom-right;
+}
+.box::after {
+    @apply content-[''] absolute top-[-50%] left-[-50%] w-full h-[350px] bg-custom-gradient z-[1] animate-animate origin-bottom-right; 
+    animation-delay: -3s;
+}
+
+.btn::after {
+    @apply content-[''] absolute h-[0px] w-[2px] bg-light shadow-activeButton transition-all duration-500 ease-in
+}
+
+.btn::before {
+    @apply content-[''] absolute h-[0px] w-[2px] bg-light shadow-activeButton transition-all duration-500 ease-in
+}
+
+.btn::before {
+    @apply right-0 top-0 h-full
+}
+.btn::after {
+    @apply left-0 bottom-0 h-full
+}
+
+.btn:hover:before {
+    @apply transition-all duration-300 ease-in
+}
+
+.btn:hover:after {
+    @apply transition-all duration-300 ease-in
+}
+
+.btn span::before{
+    @apply absolute content-[''] bg-light shadow-light transition-all duration-500 ease-in
+}
+.btn span::after{
+    @apply absolute content-[''] bg-light shadow-light transition-all duration-500 ease-in
+}
+
+.btn span::before{
+    @apply left-0 top-0 w-0 h-[2px] 
+}
+
+.btn span::after{
+    @apply right-0 bottom-0 w-0 h-[2px] 
+}
+
+.btn span:hover::before{
+    @apply w-full
+}
+
+.btn span:hover::after{
+    @apply w-full
+}
+
+
