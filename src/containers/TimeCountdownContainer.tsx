@@ -61,8 +61,8 @@ const TimeCountdownContainer = () => {
 
   const { duration, distance } = useAppSelector((state) => {
     return {
-      duration: state?.TimeMode?.duration || "25:00",
-      distance: state?.TimeMode?.distance || 1500000
+      duration: state.TimeMode ? state.TimeMode.duration : "25:00",
+      distance: state.TimeMode ? state.TimeMode.distance : 1500000
     };
   }, shallowEqual);
 
