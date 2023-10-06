@@ -18,10 +18,8 @@ const TimeCountdownContainer = () => {
 
   const { duration, distance } = useAppSelector((state) => {
     return {
-      // mode: state.TimeMode.mode,
-      duration: state.TimeMode.duration,
-      // active: state.active ? state.active.isActive : false,
-      distance: state.TimeMode.distance
+      duration: state.TimeMode.duration || "25:00",
+      distance: state.TimeMode.distance || 1500000
     };
   }, shallowEqual);
 
