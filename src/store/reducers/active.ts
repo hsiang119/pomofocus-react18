@@ -1,5 +1,5 @@
 /* eslint-disable default-param-last */
-import { ActionActiveTypes } from '../actions';
+import { ActionActiveTypes, ACTIVE  } from '../actions';
 
 interface initialState {
   isActive: boolean;
@@ -11,7 +11,7 @@ const initialState: initialState = {
 
 export default function active(state = initialState, action: ActionActiveTypes) {
   switch (action.type) {
-    case "TOGGLE_ACTIVE":
+    case ACTIVE:
       return {
         ...state,
         isActive: !state.isActive
