@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import TimeMode from './TimeMode';
+import mode from "./mode";
 import active from "./active";
 
 const reducers = combineReducers({
-    TimeMode,
-    active
+    active,
+    mode
 });
 
 export default reducers;

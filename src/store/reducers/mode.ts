@@ -1,3 +1,4 @@
+/* eslint-disable default-param-last */
 import { ActionModeTypes } from '../actions';
 
 interface initialState {
@@ -14,7 +15,7 @@ const initialState: initialState = {
   distance: 25 * minute
 };
 
-export default function TimeMode(state = initialState, action: ActionModeTypes) {
+export default function mode(state = initialState, action: ActionModeTypes) {
   switch (action.type) {
     case "POMODORO":
       return {

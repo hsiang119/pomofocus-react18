@@ -34,7 +34,6 @@ const CountdownTimer: React.FC<TimeProps> = (props)  => {
     }
  
     return (
-        
         <section className="flex w-full h-full">
             <article className="w-[600px] h-[350px] bg-black m-auto rounded-[8px]">
                 <ul className="w-auto flex space-x-3 text-center text-xl cursor-pointer rounded-default justify-center items-center gap-6 menu">

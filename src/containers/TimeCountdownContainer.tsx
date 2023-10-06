@@ -16,8 +16,6 @@ interface NavTabItem {
 
 const TimeCountdownContainer = () => {
 
-  
-
   const [navTab] = useState<NavTabItem[]>([
     {
       id: 1,
@@ -32,8 +30,6 @@ const TimeCountdownContainer = () => {
       title: 'Long Break',
     }
   ])
-  
-  
 
   const dispatch = useAppDispatch();
 
@@ -60,9 +56,12 @@ const TimeCountdownContainer = () => {
   )
 
   const { duration, distance } = useAppSelector((state) => {
+    console.log(state.mode);
+    console.log(state.active.isActive);
     return {
-      duration: state.TimeMode ? state.TimeMode.duration : "25:00",
-      distance: state.TimeMode ? state.TimeMode.distance : 1500000
+      duration: state.mode.duration,
+      distance: state.mode.distance,
+       
     };
   }, shallowEqual);
 
@@ -82,7 +81,7 @@ const TimeCountdownContainer = () => {
     [dispatch, isActive],
   )
 
-  return(
+  return (
     <CountdownTimer value={value} isActive={isActive} duration={duration} navTab={navTab} onUpdateTimeMode={atUpdateTimeMode} onChangeActiveStatus={atChangeActiveStatus} />
   )
 };

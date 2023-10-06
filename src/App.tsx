@@ -11,7 +11,6 @@ export default function App() {
       <div className="App xl:max-w-1200 lg:max-w-1000 md:max-w-600 w-full mx-auto my-0 h-screen">
         <Routes>
           <Route path="/" element={<Home />} />
-          
         </Routes>
       </div>
     </Router>
