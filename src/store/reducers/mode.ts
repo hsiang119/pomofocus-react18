@@ -1,5 +1,5 @@
 /* eslint-disable default-param-last */
-import { ActionModeTypes, POMODORO, LONGBREAK, SHORTBREAK } from '../actions';
+import { ActionModeTypes } from '../actions';
 
 interface initialState {
   mode: string,
@@ -10,26 +10,26 @@ interface initialState {
 const minute = 60 * 1000
 
 const initialState: initialState = {
-  mode: POMODORO,
+  mode: "POMODORO",
   duration: "25:00",
   distance: 25 * minute
 };
 
 export default function mode(state = initialState, action: ActionModeTypes) {
   switch (action.type) {
-    case POMODORO:
+    case "POMODORO":
       return {
         ...state,
         ...action.payload,
       };
       
-    case LONGBREAK:
+    case "LONGBREAK":
       return {
         ...state,
         ...action.payload,
       };
 
-    case SHORTBREAK:
+    case "SHORTBREAK":
       return {
         ...state,
         ...action.payload,

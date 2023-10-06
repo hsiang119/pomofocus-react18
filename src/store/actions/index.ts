@@ -1,13 +1,19 @@
-export const POMODORO = "POMODORO";
-export const LONGBREAK = "LONGBREAK";
-export const SHORTBREAK = "SHORTBREAK";
+const POMODORO = "POMODORO";
+const LONGBREAK = "LONGBREAK";
+const SHORTBREAK = "SHORTBREAK";
 
-export const ACTIVE = "TOGGLE_ACTIVE";
+const ACTIVE = "TOGGLE_ACTIVE";
+
+interface payload  {
+    mode: "POMODORO" | "LONGBREAK" | "SHORTBREAK"
+    duration: string,
+    distance: number
+}
 
 
-export type ActionPomodoro = { type: "POMODORO", payload };
-export type ActionLongBreak = { type: "LONGBREAK", payload };
-export type ActionShortBreak = { type: "SHORTBREAK", payload };
+export type ActionPomodoro = { type: "POMODORO", payload: payload };
+export type ActionLongBreak = { type: "LONGBREAK", payload: payload };
+export type ActionShortBreak = { type: "SHORTBREAK", payload: payload };
 
 export type ActionActive = { type: "TOGGLE_ACTIVE" };
 
