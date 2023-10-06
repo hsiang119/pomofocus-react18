@@ -33,7 +33,7 @@ const TimeCountdownContainer = () => {
     }
   ])
   
-  const { value, onStart, onStop, isActive } = useCountdown(distance, duration);
+  
 
   const dispatch = useAppDispatch();
 
@@ -59,6 +59,15 @@ const TimeCountdownContainer = () => {
     [dispatch],
   )
 
+  const { duration, distance } = useAppSelector((state) => {
+    return {
+      duration: state?.TimeMode?.duration || "25:00",
+      distance: state?.TimeMode?.distance || 1500000
+    };
+  }, shallowEqual);
+
+  const { value, onStart, onStop, isActive } = useCountdown(distance, duration);
+
   const atChangeActiveStatus = useCallback(
     () => {
       if (!isActive) {
@@ -72,13 +81,6 @@ const TimeCountdownContainer = () => {
     },
     [dispatch, isActive],
   )
-
-  const { duration, distance } = useAppSelector((state) => {
-    return {
-      duration: state?.TimeMode?.duration || "25:00",
-      distance: state?.TimeMode?.distance || 1500000
-    };
-  }, shallowEqual);
 
   return(
     <CountdownTimer value={value} isActive={isActive} duration={duration} navTab={navTab} onUpdateTimeMode={atUpdateTimeMode} onChangeActiveStatus={atChangeActiveStatus} />
