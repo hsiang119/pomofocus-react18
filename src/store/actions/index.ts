@@ -9,7 +9,7 @@ type ActionPomodoro = { type: 'POMODORO' };
 type ActionLongBreak = { type: 'LONGBREAK' };
 type ActionShortBreak = { type: 'SHORTBREAK' };
 
-export type ActionActive = { type: "TOGGLE_ACTIVE" }
+export type ActionActive = { type: "TOGGLE_ACTIVE" };
 
 
 export const actionPomodoro = (): ActionPomodoro => {

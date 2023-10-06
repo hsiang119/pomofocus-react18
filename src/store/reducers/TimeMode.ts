@@ -21,7 +21,7 @@ export default function TimeMode(state = initialState, action: ActionModeTypes) 
         ...state,
         mode: "POMODORO",
         duration: "25:00",
-        distance: 25 * minute 
+        distance: 25 * minute
       };
       
     case "LONGBREAK":
