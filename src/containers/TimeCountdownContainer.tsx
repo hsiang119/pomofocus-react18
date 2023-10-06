@@ -55,8 +55,6 @@ const TimeCountdownContainer = () => {
   )
 
   const { duration, distance } = useAppSelector((state) => {
-    // console.log(state.mode);
-    // console.log(state.active.isActive);
     return {
       duration: state.mode.duration,
       distance: state.mode.distance,
