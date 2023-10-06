@@ -9,7 +9,7 @@ if (process.env.NODE_ENV === 'development') {
   preloadedState = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 }
 // const devToolsExtension = process.env.NODE_ENV === 'development' && window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : undefined;
-const store = createStore(reducers);
+const store = createStore(reducers, preloadedState);
 
 // const store = createStore(reducers, preloadedState);
 
