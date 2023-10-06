@@ -1,4 +1,3 @@
-/* eslint-disable default-param-last */
 import { ActionActiveTypes } from '../actions';
 
 interface initialState {
