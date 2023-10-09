@@ -3,10 +3,11 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from './reducers';
 
-let preloadedState = null;
+let preloadedState = undefined;
 if (process.env.NODE_ENV === 'development') {
   // @ts-ignore
-  preloadedState = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+  preloadedState = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__?.();
+  // preloadedState = window.REDUX_DEVTOOLS_EXTENSION ? window.REDUX_DEVTOOLS_EXTENSION() : (f) => f
 }
 const store = createStore(reducers, preloadedState);
 

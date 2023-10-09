@@ -1,4 +1,4 @@
-import { useCallback, memo, useState } from 'react';
+import { useCallback } from 'react';
 import { shallowEqual } from 'react-redux';
 import { useAppDispatch, useAppSelector } from '../store';
 import CountdownTimer from "../components/CountdownTimer/CountdownTimer";
@@ -13,23 +13,22 @@ interface NavTabItem {
   title: string
 }
 
+const navTab: NavTabItem[] = [
+  {
+    id: 1,
+    title: 'Pomodoro',
+  },
+  {
+    id: 2,
+    title: 'Short Break',
+  },
+  {
+    id: 3,
+    title: 'Long Break',
+  }
+]
+
 const TimeCountdownContainer = () => {
-
-  const [navTab] = useState<NavTabItem[]>([
-    {
-      id: 1,
-      title: 'Pomodoro',
-    },
-    {
-      id: 2,
-      title: 'Short Break',
-    },
-    {
-      id: 3,
-      title: 'Long Break',
-    }
-  ])
-
   const dispatch = useAppDispatch();
 
   const atUpdateTimeMode = useCallback(
@@ -66,10 +65,8 @@ const TimeCountdownContainer = () => {
   const atChangeActiveStatus = useCallback(
     () => {
       if (!isActive) {
-        console.log("1");
         onStart()
       } else {
-        console.log("2");
         onStop()
       }
       dispatch(actionActive());
@@ -82,4 +79,4 @@ const TimeCountdownContainer = () => {
   )
 };
 
-export default memo(TimeCountdownContainer);
+export default TimeCountdownContainer;

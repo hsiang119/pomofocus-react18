@@ -19,7 +19,7 @@ type TimeProps = {
 
 const CountdownTimer: React.FC<TimeProps> = (props)  => {
     const { value, isActive, navTab, onUpdateTimeMode, onChangeActiveStatus } = props;
-
+    
     const [activeTab, setActiveTab] = useState<string>("Pomodoro")
 
     const atChangeActive = ():void => {
