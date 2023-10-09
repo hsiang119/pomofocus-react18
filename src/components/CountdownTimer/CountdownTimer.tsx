@@ -19,7 +19,7 @@ type TimeProps = {
 
 const CountdownTimer: React.FC<TimeProps> = (props)  => {
     const { value, isActive, navTab, onUpdateTimeMode, onChangeActiveStatus } = props;
-    
+
     const [activeTab, setActiveTab] = useState<string>("Pomodoro")
 
     const atChangeActive = ():void => {
@@ -40,7 +40,7 @@ const CountdownTimer: React.FC<TimeProps> = (props)  => {
                     {navTab.map((item) => (
                         <li 
                             onClick={() => atChangeCountDownMode(item.title)}
-                            className={`block item h-auto border-transparent border-b-2 ${activeTab === item.title ? styles['tab-active'] : ''} hover:text-cyan-500 hover:border-b-cyan-500 hover:transition duration-500`}
+                            className={`relative overflow-hidden block item h-auto border-transparent border-b-2 ${activeTab === item.title ? styles['tab-active'] : ''} hover:text-cyan-500 hover:transition duration-500 after:block after:content-[''] after:h-[2px] after:w-[100%] after:bg-cyan-500 after:transform after:scale-x-0 after:transition-transform after:duration-300 after:ease-in-out hover:after:transform hover:after:scale-[1]`}
                             key={item.id}
                         >
                             {item.title}

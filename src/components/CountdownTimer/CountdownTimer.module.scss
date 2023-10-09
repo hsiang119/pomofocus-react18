@@ -1,11 +1,12 @@
 .tab-active {
-    @apply text-cyan-500 border-transparent border-b-2 border-b-cyan-500;
+    // @apply text-cyan-500 border-transparent border-b-2 border-b-cyan-500;
+    @apply text-cyan-500;
 }
 
 
 .menu:has(.item:hover) .item:not(:hover) {
     color: #8f8f8f;
-    border-bottom: 2px solid transparent;
+    border-bottom: 3px solid transparent;
     opacity: 0.5;
     
 }
